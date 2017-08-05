@@ -1,14 +1,15 @@
-function doAfterDelay() {
-    console.log("B");
+function doAfterDelay(callBackFuntion) {
+    return callBackFuntion(console.log("B"))
 }
 
 
 (function start() {
     console.log("A");
     setTimeout(function () {
-        doAfterDelay()
+        doAfterDelay(() => {
+            console.log("C");
+        })
     }, 3000);
-    console.log("C");
 
 })();
 
